@@ -42,7 +42,7 @@ rectangle.addEventListener("mouseleave", function () {
 let rectangle = document.querySelector("#rectangle");
 const { left, right } = rectangle.getBoundingClientRect();
 
-rectangle.addEventListener("mousemove", (position) => {
+function coloring(position) {
   let DistanceFromCenter = (left + right) / 2 - position.clientX;
 
   let distanceInPercentage =
@@ -55,7 +55,9 @@ rectangle.addEventListener("mousemove", (position) => {
   } else {
     rectangle.style.backgroundColor = `rgb(0,0,${percentageForColor * -1})`;
   }
-});
+}
+
+rectangle.addEventListener("mousemove", coloring);
 
 rectangle.addEventListener("mouseleave", function () {
   rectangle.style.backgroundColor = "white";
